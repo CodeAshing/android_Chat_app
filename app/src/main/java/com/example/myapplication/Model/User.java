@@ -5,15 +5,28 @@ public class User {
     private String id;
     private String username;
     private String imageURL;
+    private  String email;
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public User(){
+    }
     public User(String id, String username, String image_url) {
         this.id = id;
         this.username = username;
         this.imageURL = image_url;
     }
 
-    public User(){
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
     }
+
 
     public String getId() {
         return id;
