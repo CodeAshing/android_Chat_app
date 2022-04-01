@@ -83,7 +83,7 @@ public class ProfileFragment extends Fragment {
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
@@ -144,6 +144,7 @@ public class ProfileFragment extends Fragment {
                         pd.dismiss();
                     }else{
                         Toast.makeText(getContext(), "Failed!", Toast.LENGTH_SHORT).show();
+                        pd.dismiss();
                     }
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -159,15 +160,17 @@ public class ProfileFragment extends Fragment {
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         
-        if(requestCode == IMAGE_REQUEST && resultCode == RESULT_OK
+        if(requestCode == IMAGE_REQUEST
         && data != null && data.getData() != null){
             imageUri = data.getData();
             
             if(uploadTask != null && uploadTask.isInProgress()){
                 Toast.makeText(getContext(), "Upload in progress", Toast.LENGTH_SHORT).show();
+            }else{
+                uploadImage();
             }
         }
     
