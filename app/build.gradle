@@ -3,20 +3,16 @@ plugins {
     id 'com.google.firebase.appdistribution'
     id 'com.google.gms.google-services'
 }
-
 android {
     compileSdk 32
-
     defaultConfig {
         applicationId "com.example.myapplication"
         minSdk 21
         targetSdk 32
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -28,7 +24,6 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
-
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
@@ -46,7 +41,6 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'com.google.firebase:firebase-messaging:17.3.1'
     implementation 'com.firebaseui:firebase-ui-auth:6.1.0'
-
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
